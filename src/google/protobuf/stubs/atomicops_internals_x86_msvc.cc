@@ -44,10 +44,12 @@ namespace google {
 namespace protobuf {
 namespace internal {
 
+#ifndef _M_ARM 
 inline void MemoryBarrier() {
   // We use MemoryBarrier from WinNT.h
   ::MemoryBarrier();
 }
+#endif
 
 Atomic32 NoBarrier_CompareAndSwap(volatile Atomic32* ptr,
                                   Atomic32 old_value,
